@@ -7,25 +7,18 @@
   <link rel="icon" href="https://raw.githubusercontent.com/kh1012/sproj-std/main/files/favicon.ico" />
   <title>html simple input</title>
 </head>
-<body>
+<body style="padding: 10px">
+  <!-- SCRIPT 동작 코드 -->
   <script type=""text/javascript">
-    //저장 클릭 시, input 태그에 value를 localstorage에 저장하는 코드
-    function setInputValueToLocalStorage() {
-      const value = document.getElementById('mapikey-input').value;
-      window.localStorage.setItem('MAPI-Key', value);
-      const sliceValue = `${value.slice(0, 20)} ... ${value.slice(-20)}`;
-      document.getElementById('mapikey-output').innerHTML = 
-        `정상적으로 저장이 완료 되었습니다.<br>(MAPI-Key: ${sliceValue})<br>확인 방법 (Chrome 기준): 개발자 도구(F12) -> 애플리케이션 -> 로컬 스토리지 확인<br><img src="localstorage-sample.png" alt="" width="700px" />`;
-    }
-
     //GET NODE 버튼 클릭 시 동작
     function getNodeFetch() {
       async function doWork() {
-        const response = await fetch('https://api-beta.rpm.kr-dv-midasit.com/gen/db/node', {
+        const BaseURL = document.getElementById("baseurl-input").value;
+        const response = await fetch(`${BaseURL}/db/node`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            'MAPI-Key': window.localStorage.getItem('MAPI-Key')
+            'MAPI-Key': document.getElementById("mapikey-input").value
         }});
   
         document.getElementById('getnode-output').textContent = JSON.stringify(await response.json(), null, 2);
@@ -36,10 +29,9 @@
   </script>
 
   <!-- TITLE -->
-  <h1>HTML SIMPLE INPUT TEST</h1>
+  <h1>HTML SIMPLE INPUT</h1>
 
   <!-- EXAMPLE -->
-  <h2>EXAMPLE</h2>
   <ul>
     <!-- CLIENT SAMPLE 모델 OPEN / CLEINT - SERVER 연결 -->
     <li style="margin-bottom: 10px">
@@ -47,19 +39,27 @@
     </li>
     <!-- MAPI-KEY 입력 및 저장 -->
     <li style="margin-bottom: 10px">
-      02. 01로부터 발급받은 <b>MAPI-Key을 입력하고 저장버튼</b>을 클릭하세요.
+      02. 01로부터 발급받은 <b>MAPI-Key을 입력</b>하세요.
       <div>
         <input type="text" id="mapikey-input" style="width: 300px">
-        <button type="button" style="margin-left: 10px" onclick="setInputValueToLocalStorage()">저장</button>
         <div id="mapikey-output" />
       </div>
     </li>
+    <!-- BASE URL 입력 및 저장 -->
     <li style="margin-bottom: 10px">
-      03. <b>"GET"</b> NODE 정보를 가져옵니다.
+      03. 01에서 사용한 <b>Base Url을 입력</b>하세요.
+      <div>
+        <input type="text" id="baseurl-input" style="width: 300px">
+        <div id="baseurl-output" />
+      </div>
+    </li>
+    <!-- CLIENT의 NODE 정보를 가져와서 출력 -->
+    <li style="margin-bottom: 10px">
+      04. <b>"GET"</b> NODE 정보를 가져옵니다.
       <div>
         <button type="button" onclick="getNodeFetch()">GET NODE</button>
         <pre id="getnode-output" />
-    </div>
+      </div>
     </li>
   </ul>
 </body>
