@@ -35,7 +35,7 @@
       }
     }
 
-    // MAPI-Key가 올바른지 확인하는 함수 입니다.
+    // MAPI-Key가 올바른지 확인하는 함수
     function checkMapiKey() {
       async function doWork() {
         // mapikey를 QueryString으로부터 가져 옵니다.
@@ -57,25 +57,7 @@
       doWork();      
     }
 
-    // GET NODE 버튼 클릭 시 동작을 정의해준 함수
-    async function getNodeFetch() {
-      // mapikey를 QueryString으로부터 가져 옵니다.
-      const mapikey = getMapiKey();
-
-      // NODE를 가져오는 요청을 보냅니다.
-      const response = await fetch(`${baseUrl}/${programType}/db/node`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'MAPI-Key': mapikey
-      }});
-
-      // 응답 결과를 getnode-output id를 가진 DOM 객체에 전달합니다.
-      document.getElementById('getnode-output').textContent = 
-        JSON.stringify(await response.json(), null, 2);
-    }
-
-    //GET NODE 버튼 클릭 시 동작
+    //GET NODE 함수
     function getNodeFetch() {
       async function doWork() {
         // mapikey를 QueryString으로부터 가져 옵니다.
@@ -104,10 +86,6 @@
 
     <!-- EXAMPLE -->
     <ul>
-      <!-- CLIENT SAMPLE 모델 OPEN / CLEINT - SERVER 연결 -->
-      <li style="margin-bottom: '10px'">
-        <a href={"https://naver.com"} target={"_blank"} rel="noreferrer">MIDAS 제품 - API SERVER 연결 방법</a>을 참고하여 <b>API 서버에 연결</b> 합니다.
-      </li>
       <li style="margin-bottom: 10px">
         아래 Edit Box에 MAPI-Key를 넣고 <b>QueryString을 만들어 보세요.</b>
         <div style="margin-top: 10px; margin-bottom: 10px">
