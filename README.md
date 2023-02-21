@@ -6,7 +6,7 @@ HTML button 태그를 이용해서 DOM Element의 innerHTML을 치환하여 브�
 
 ## Prerequisite
 
-해당 저장소를 사용하려면 [Getting Started With React](https://github.com/kh1012/sproj-prerequisite/tree/main/react)에 포함된 환경이 모두 구성되어 있어야 합니다. \
+해당 저장소를 사용하려면 [Getting Started With HTML](https://github.com/kh1012/sproj-prerequisite/tree/main/html)에 포함된 환경이 모두 구성되어 있어야 합니다. \
 가능한 안내 된 프로그램을 다운로드 받으시고 최신 버전을 사용하는 것이 좋습니다. `LTS`
 <br /><br />
 
