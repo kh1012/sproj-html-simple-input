@@ -31,7 +31,8 @@ HTML button 태그를 이용해서 DOM Element의 innerHTML을 치환하여 브�
 ## Plugin Development
 
 해당 저장소를 사용하려면 [Getting Started With HTML](https://github.com/kh1012/sproj-prerequisite/tree/main/html)에 포함된 환경이 모두 구성되어 있어야 합니다. \
-가능한 안내 된 프로그램을 다운로드 받으시고 최신 버전을 사용하는 것이 좋습니다. `LTS`
+가능한 안내 된 프로그램을 다운로드 받으시고 최신 버전을 사용하는 것이 좋습니다. `LTS`\
+상세한 내용을 얻으려면 [MDN html](https://developer.mozilla.org/ko/docs/Web/HTML) 링크를 참고하시면 좋습니다.
 <br /><br />
 
 ### 주요 코드 설명
@@ -44,7 +45,7 @@ HTML button 태그를 이용해서 DOM Element의 innerHTML을 치환하여 브�
       - `baseUrl`: MIDAS API Server의 Url 입니다.
       - function `getMapiKey()`: URL QueryString으로부터 MAPI-Key를 가져오는 함수 입니다.
       - function `getNodeFetch()`: MIDAS API를 통해 연결된 제품의 Node 정보를 가져 옵니다.
-    - 웹 페이지에 표현을 담당하는 HTML 부분이 존재합니다. [MDN-HTML](https://developer.mozilla.org/ko/docs/Web/HTML)
+    - 웹 페이지에 표현을 담당하는 HTML 부분이 존재합니다.
       - ul, li 태그를 활용하여 리스트로 표현되어 있습니다.
         - [MDN-ul](https://developer.mozilla.org/ko/docs/Web/HTML/Element/ul)에 대해 확인해 보세요!
         - [MDN-li](https://developer.mozilla.org/ko/docs/Web/HTML/Element/li)에 대해 확인해 보세요!
